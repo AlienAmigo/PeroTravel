@@ -138,6 +138,7 @@ npm start deploy # отправка последнего коммита
 - autoprefixer
 - normalize.css
 - gulp-postcss
+- gulp-sourcemaps
 - postcss-flexbugs-fixes
 - postcss-animation
 - stylelint-config-prettier,
