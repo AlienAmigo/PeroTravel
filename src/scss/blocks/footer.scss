@@ -1,3 +1,196 @@
 .footer {
-  margin: 0;
+  width: 100vw;
+  min-height: 173px;
+  margin: 0 0 0 calc((#{$screen-lg} - 100vw) / 2);
+  background: $gray-color2;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: $screen-lg;
+    margin: 0 auto;
+    padding: 30px $padding-lg 29px;
+  }
+
+  &__logo {
+    width: 80px;
+    height: 114px;
+    margin-right: 110px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__menu {
+    margin-right: auto;
+  }
+
+  &__contacts-social-links-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    gap: 6px 109px;
+    width: max-content;
+    min-width: 490px;
+    height: 70px;
+  }
+
+  &__contact-link {
+    position: relative;
+    padding-left: 29px;
+    color: $text-color;
+    text-decoration: none;
+    transition: color 0.25s ease-in;
+
+    &::before {
+      @include pseudo();
+      top: 50%;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      color: $main-color;
+    }
+
+    &--whatsapp {
+      &::before {
+        background-size: 18px;
+        background-image: url('@img/sprite-svg.svg#whatsapp_logo');
+      }
+    }
+
+    &--telegram {
+      &::before {
+        background-size: 18px;
+        background-image: url('@img/sprite-svg.svg#telegram_logo');
+      }
+    }
+
+    &--email {
+      &::before {
+        background-size: 19px;
+        background-image: url('@img/sprite-svg.svg#mail_logo');
+      }
+    }
+  }
+}
+
+@include media(tablet) {
+  .footer {
+    min-height: 173px;
+    margin: 0 0 0 calc((#{$screen-sm} - 100vw) / 2);
+
+    &__wrapper {
+      width: $screen-sm;
+      padding: 40px $padding-sm;
+    }
+
+    &__logo {
+      width: 65px;
+      height: 93px;
+      margin-right: 42px;
+    }
+
+    &__contacts-social-links-wrapper {
+      gap: 5px 33px;
+      min-width: 358px;
+    }
+
+    &__contact-link {
+      padding-left: 24px;
+      font-size: 12px;
+      line-height: 1.25em;
+
+      &::before {
+        @include pseudo();
+        top: 50%;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+@include media(mobile) {
+  .footer {
+    min-height: 428px;
+    margin: 0 0 0 calc((#{$screen-xs} - 100vw) / 2);
+
+    &__wrapper {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: max-content;
+      max-width: $screen-xs;
+      margin: 0 auto;
+      padding: 40px $padding-xs 49px;
+    }
+
+    &__logo {
+      width: 100%;
+      height: 114px;
+      margin: 0 auto 108px;
+    }
+
+    &__menu {
+      width: 50%;
+      margin-right: 0;
+    }
+
+    &__contacts-social-links-wrapper {
+      flex-flow: column wrap;
+      align-items: flex-start;
+      gap: 7px;
+      position: relative;
+      min-width: 178px;
+      height: auto;
+    }
+
+    &__social-links {
+      position: absolute;
+      right: 50%;
+      bottom: calc(100% + 62px);
+      transform: translateX(-25%);
+    }
+  }
+}
+
+@include media(phone) {
+  .footer {
+    min-height: 428px;
+    margin: 0;
+
+    &__wrapper {
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: max-content;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    &__menu {
+      width: 50%;
+      margin: 0 auto 30px;
+    }
+
+    &__contacts-social-links-wrapper {
+      margin: 0 auto;
+    }
+
+    &__social-links {
+      position: absolute;
+      right: 50%;
+      bottom: calc(100% + 140px);
+      width: 50%;
+      transform: translateX(50%);
+    }
+  }
 }

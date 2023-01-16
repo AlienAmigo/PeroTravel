@@ -1,4 +1,23 @@
-//- Примеси
+//- Примеси\
+mixin mainNav(pos)
+  nav.main-nav(class=`${pos ? 'main-nav--' + pos : ''}`)
+    ul.main-nav__list(class=`${pos ? 'main-nav__list--' + pos : ''}`)
+      each el in routes
+        li.main-nav__item(class=`${pos ? 'main-nav__item--' + pos : ''}`)
+          a.main-nav__link(
+            class=`${pos ? 'main-nav__link--' + pos : ''} ${el.name == myPageTitle ? 'main-nav__link--active' : ''}`,
+            href=`${el.link}`)= el.name
+
+
+mixin socialLinksBlock(footer)
+  .social-links(class=`${footer ? 'social-links--footer' : ''}`)
+    each el in socialLinks
+      a.social-links__link(
+        class=`${footer ? 'social-links__link--footer' : ''} social-links__link--${el.name.toLowerCase()}`,
+        href=`${el.link}`,
+        title=`${el.name}`)
+
+
 mixin video(vid, cover, autoplay: false)
   .video__wrap
     video.video.video__hidden(loop='loop', width='850', autoplay=`${autoplay ? 'autoplay' : '0'}`, control)

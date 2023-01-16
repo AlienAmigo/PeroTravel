@@ -43,9 +43,8 @@ html(class='page  no-js', lang='ru')
         block content
           p Cодержимое
 
-      .page__footer-wrapper
-        block footer
-          p Подвал
+      block footer
+        include footer.pug
 
     block templates
     block page-bottom

@@ -1,0 +1,70 @@
+.main-nav {
+  display: flex;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    &--footer {
+      gap: 8px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &--active {
+      pointer-events: none;
+    }
+
+    &--footer {
+      color: $text-color;
+
+      &:hover {
+        color: $main-color;
+      }
+
+      &:visited,
+      &:active {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+@include media(tablet) {
+  .main-nav {
+    &__list {
+      &--footer {
+        gap: 5px;
+      }
+    }
+
+    &__link {
+      &--footer {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@include media(mobile) {
+  .main-nav {
+    &__list {
+      &--footer {
+        gap: 5px;
+      }
+    }
+
+    &__link {
+      &--active {
+        pointer-events: none;
+      }
+
+      &--footer {
+        font-size: 12px;
+      }
+    }
+  }
+}

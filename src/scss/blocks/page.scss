@@ -19,11 +19,27 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    width: $screen-lg;
+    margin: 0 auto;
   }
 
   &__content {
     flex: 1;
   }
+}
 
-  // &__footer-wrapper {}
+@include media(tablet) {
+  .page {
+    &__inner {
+      width: $screen-sm;
+    }
+  }
+}
+
+@include media(mobile) {
+  .page {
+    &__inner {
+      width: $screen-xs;
+    }
+  }
 }

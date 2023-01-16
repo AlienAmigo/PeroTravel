@@ -1,18 +1,26 @@
 @use 'sass:math'; /* stylelint-disable-line at-rule-no-unknown */
 
 // media queries
-@mixin devices($breakpoint) { //the name of the mixin is devices
+@mixin media($breakpoint) {
+  //the name of the mixin is devices
 
   @if $breakpoint == tablet {
-
-    @media only screen and (max-width: 680px) {
+    /* stylelint-disable-next-line  */
+    @media only screen and (max-width: #{$screen-lg - 1px}) {
       @content;
     }
   }
 
   @if $breakpoint == mobile {
+    /* stylelint-disable-next-line  */
+    @media only screen and (max-width: #{$screen-sm - 1px}) {
+      @content;
+    }
+  }
 
-    @media only screen and (max-width: 481px) {
+  @if $breakpoint == phone {
+    /* stylelint-disable-next-line  */
+    @media only screen and (max-width: #{$screen-xs - 1px}) {
       @content;
     }
   }
@@ -44,17 +52,20 @@
     border-right: $size solid transparent;
     border-top: $size solid $color;
     margin-top: 0 - round(math.div($size, 2.5));
-  } @else if $direction == up { /* stylelint-disable-line block-closing-brace-newline-after */
+    /* stylelint-disable-next-line  */
+  } @else if $direction == up {
     border-left: $size solid transparent;
     border-right: $size solid transparent;
     border-bottom: $size solid $color;
     margin-bottom: 0 - round(math.div($size, 2.5));
-  } @else if $direction == right { /* stylelint-disable-line block-closing-brace-newline-after */
+    /* stylelint-disable-next-line  */
+  } @else if $direction == right {
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
     border-left: $size solid $color;
     margin-right: -$size;
-  } @else if $direction == left { /* stylelint-disable-line block-closing-brace-newline-after */
+    /* stylelint-disable-next-line  */
+  } @else if $direction == left {
     border-top: $size solid transparent;
     border-bottom: $size solid transparent;
     border-right: $size solid $color;

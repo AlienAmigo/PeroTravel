@@ -1,0 +1,15 @@
+footer.footer
+  .footer__wrapper
+    img.footer__logo(src="@img/logo_color.png", alt="Pero Travel. Логотип")
+
+    .footer__menu
+      +mainNav('footer')
+
+    .footer__contacts-social-links-wrapper
+      each el in contacts
+        a.footer__contact-link(
+          href=`${el.link}`,
+          class=`footer__contact-link--${el.type}`)= el.value
+
+      .footer__social-links
+        +socialLinksBlock('footer')
