@@ -2,7 +2,7 @@ extends ../pug/layout.pug
 
 block meta
   - let myPageId = 'main';
-  - let myPageTitle = routes[myPageId].name;
+  - let  myPageTitle = routes[myPageId].name;
   title= createPageTitle()
   meta(name='description', content='')
 
@@ -13,9 +13,11 @@ block header
 
 block content
   section.top-banner
-    h1.top-banner__title ПУТЕШЕСТВУЙ #[span.top-banner__title-italic вместе с] #[span.top-banner__titl PERO TRAVEL]
-    .top-banner__social-links
-      +socialLinksBlock()
+    .top-banner__wrapper
+      h1.top-banner__title ПУТЕШЕСТВУЙ #[span.top-banner__title-italic вместе с] #[span.top-banner__title-inverse PERO TRAVEL]
+      .top-banner__social-links
+        +socialLinksBlock()
+      a.btn(href=`${routes.excursions.link}`) К экскурсиям
 
 //- block append page-bottom
 //-   script(src='js/some.js')

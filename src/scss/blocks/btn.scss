@@ -1,0 +1,42 @@
+.btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: max-content;
+  border-radius: 60px;
+  padding: 16px 53px 17px;
+  background: $gradient-color;
+  color: $white-color;
+  text-decoration: none;
+  transition: all 0.35s ease-in;
+
+  &::after {
+    @include pseudo(block, relative, '');
+    width: 14px;
+    height: 1em;
+    margin-left: 5px;
+    background: url('@img/sprite-svg.svg#btn-arrow') no-repeat center / auto;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease-in;
+    animation: bgMove 2.5s ease infinite;
+    background-size: 200% 100%;
+
+    /* stylelint-disable-next-line  */
+    @keyframes bgMove {
+      0% {
+        background-position: 0% 18%;
+      }
+
+      50% {
+        background-position: 100% 82%;
+      }
+
+      100% {
+        background-position: 0% 18%;
+      }
+    }
+  }
+}
