@@ -17,7 +17,79 @@ block content
       h1.top-banner__title ПУТЕШЕСТВУЙ #[span.top-banner__title-italic вместе с] #[span.top-banner__title-inverse PERO TRAVEL]
       .top-banner__social-links
         +socialLinksBlock()
-      a.btn(href=`${routes.excursions.link}`) К экскурсиям
+      a.btn.btn--arrow(href=`${routes.excursions.link}`) К экскурсиям
+
+  section.top-video
+    a.top-video__link(
+      href="",
+      target="_blank")
+    img.top-video__sec-img(src="", alt="")
+
+  section.popular-excursions
+    include ../pug/data/popular-excursions-cards.pug
+    h2.popular-excursions__title  Популярные экскурсии
+    each el in popularExcursionsCards
+      .popular-excursions__cards-wrapper
+        article.popular-excursion-card
+          img.popular-excursion-card__img(src=`@img/${el.img}`, alt=`${el.name}`)
+          p.popular-excursion-card__type= el.type
+          h3.popular-excursion-card__title= el.name
+          .popular-excursion-card__time-price-wrapper
+            span.popular-excursion-card__time= el.time
+            span.popular-excursion-card__price= el.price
+          p.popular-excursion-card__descr= el.descr
+          a.btn(href="#") Подробнее
+
+  section.about
+    img.about__img(src="@img/about.png", alt="PERO TRAVEL. О нас")
+    .about__text-wrapper
+      h2.about__title О нас
+      p.about__text PeroTravel - Первый онлайн-сервис по бронированию экскурсий без очередей и операторов.
+      p.about__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      p.about__text.about__text--top-indent Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+  section.excursion-types
+    h2.excursion-types__title Виды экскурсий
+    include ../pug/data/excursion-types.pug
+    .excursion-types__wrapper
+    each el in excursionTypes
+      article.excursion-types-card(class=`excursion-types-card--${el.ico}`)
+        h4.excursion-types-card__title= el.type
+        h4.excursion-types-card__desc= el.desc
+    a.btn(href=`${routes.excursions.link}`) К экскурсиям
+
+  section.gallery
+
+  section.reviews
+    h2.reviews Отзывы
+    include ../pug/data/reviews.pug
+    each el in reviews
+      article.review-card
+        img.review-card(src=`@img/${el.img}`, alt=`${el.img}`)
+        .review-card__text-wrapper
+          p.review-card__author= el.author + (el.age ? `, ${el.age}` : '')
+          p.review-card__text= el.text
+
+  section.questions
+    h2.questions__title Остались вопросы?
+    p.questions__subtitle Оставь заявку и мы ответим
+    form#questions-form.questions-form(method="POST", action="")
+      label.questions-form__label(for="questions-name") Имя
+        input.questions-form__input(
+          type="text",
+          id="questions-name")
+      label.questions-form__label(for="questions-phone") Телефон
+        input.questions-form__input(
+          type="phone",
+          id="questions-phone")
+      label.questions-form__label(for="questions-email") Почта
+        input.questions-form__input(
+          type="email",
+          id="questions-email")
+      input.btn.btn--submit(
+        type="submit",
+        value="Оставить заявку")
+
 
 //- block append page-bottom
 //-   script(src='js/some.js')

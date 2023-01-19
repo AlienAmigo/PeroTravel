@@ -10,14 +10,6 @@
   text-decoration: none;
   transition: all 0.35s ease-in;
 
-  &::after {
-    @include pseudo(block, relative, '');
-    width: 14px;
-    height: 1em;
-    margin-left: 5px;
-    background: url('@img/sprite-svg.svg#btn-arrow') no-repeat center / auto;
-  }
-
   &:hover {
     transform: scale(1.1);
     transition: all 0.3s ease-in;
@@ -37,6 +29,16 @@
       100% {
         background-position: 0% 18%;
       }
+    }
+  }
+
+  &--arrow {
+    &::after {
+      @include pseudo(block, relative, '');
+      width: 14px;
+      height: 1em;
+      margin-left: 5px;
+      background: url('@img/sprite-svg.svg#btn-arrow') no-repeat center / auto;
     }
   }
 }
