@@ -35,8 +35,8 @@ block content
           p.popular-excursion-card__type= el.type
           h3.popular-excursion-card__title= el.name
           .popular-excursion-card__time-price-wrapper
-            span.popular-excursion-card__time= el.time.toString().replace(/(\d)\.(\d)/, '$1,$2')
-            span.popular-excursion-card__price= `${el.price.toString().replace(/(\d{3})$/, ' $1')}\u00A0₽ `
+            span.popular-excursion-card__time= `${el.time.toString().replace(/(\d)\.(\d)/, '$1,$2')}\u00A0ч`
+            span.popular-excursion-card__price= `${el.price.toString().replace(/(\d{3})$/, '\u00A0$1')}\u00A0₽ `
           p.popular-excursion-card__descr= el.desc
           a.btn(href="#") Подробнее
 
